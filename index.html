@@ -6,13 +6,15 @@
   <title>Mathalaska - Présentation</title>
   <style>
     body { margin:0; font-family: Arial, sans-serif; background:#f7fafa; color:#333; }
-    header { display:flex; align-items:center; justify-content:space-between; padding:1rem 2rem; background:#fff; border-bottom:1px solid #ddd; }
+    header { display:flex; align-items:center; justify-content:space-between; padding:1rem 2rem; background:#fff; border-bottom:1px solid #ddd; position:sticky; top:0; }
     header img { height:50px; }
     nav a { color:#333; margin:0 1rem; text-decoration:none; font-weight:bold; }
     nav a:hover { color:#009688; }
     .hero { background:linear-gradient(135deg,#00bcd4,#009688); color:#fff; text-align:center; padding:4rem 1rem; }
     .container { max-width:1000px; margin:2rem auto; padding:0 1rem; }
-    footer { background:#333; color:#fff; text-align:center; padding:1rem; }
+    .before-after { display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; }
+    .before-after img { width:300px; border-radius:8px; }
+    footer { background:#333; color:#fff; text-align:center; padding:1rem; margin-top:2rem; }
   </style>
 </head>
 <body>
@@ -21,20 +23,29 @@
   <img src="assets/LOGO_Bleu-removebg-preview.png" alt="Mathalaska Logo">
   <nav>
     <a href="index.html">Présentation</a>
-    <a href="services.html">Nos Services</a>
+    <a href="services.html">Services</a>
     <a href="contact.html">Contact</a>
   </nav>
 </header>
 
 <div class="hero">
   <h1>Mathalaska</h1>
-  <p>Entretien & Nettoyage de Climatisation à Menton et alentours</p>
+  <p>Un nettoyage complet, pièce par pièce, pour un air plus sain.</p>
 </div>
 
 <div class="container">
-  <h2>Pourquoi choisir Mathalaska ?</h2>
-  <p>Nous démontons, nettoyons et désinfectons vos climatisations pour assurer une performance optimale et un air plus sain.  
-  Une clim propre = économies d’énergie et durée de vie prolongée.</p>
+  <h2>Pourquoi nous choisir ?</h2>
+  <p>Nous démontons chaque élément : filtre, turbine, échangeur, bac à condensats.  
+  Vous respirez un air propre, sans bactéries ni moisissures, et vous prolongez la vie de votre clim.</p>
+
+  <h2>Avant / Après</h2>
+  <div class="before-after">
+    <img src="assets/IMG_6063.jpeg" alt="Avant">
+    <img src="assets/IMG_6064.jpeg" alt="Après">
+    <!-- Ajoute ton GIF loop si tu veux -->
+  </div>
+
+  <p><a href="contact.html" style="background:#009688; color:#fff; padding:0.8rem 1.5rem; border-radius:30px; text-decoration:none; font-weight:bold;">Demander un devis</a></p>
 </div>
 
 <footer>
