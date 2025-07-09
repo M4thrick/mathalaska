@@ -6,7 +6,7 @@
   <title>Mathalaska - Contact</title>
   <style>
     body { margin:0; font-family: Arial, sans-serif; background:#f7fafa; color:#333; }
-    header { display:flex; align-items:center; justify-content:space-between; padding:1rem 2rem; background:#fff; border-bottom:1px solid #ddd; }
+    header { display:flex; align-items:center; justify-content:space-between; padding:1rem 2rem; background:#fff; border-bottom:1px solid #ddd; position:sticky; top:0; }
     header img { height:50px; }
     nav a { color:#333; margin:0 1rem; text-decoration:none; font-weight:bold; }
     nav a:hover { color:#009688; }
@@ -14,8 +14,7 @@
     form { display:flex; flex-direction:column; }
     form input, form select, form textarea { padding:0.8rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:5px; }
     .cta { background:#009688; color:#fff; padding:1rem; border:none; border-radius:30px; font-weight:bold; cursor:pointer; }
-    #vcard { background:#e0f7fa; padding:2rem; text-align:center; border-radius:12px; margin-bottom:2rem; }
-    footer { background:#333; color:#fff; text-align:center; padding:1rem; }
+    footer { background:#333; color:#fff; text-align:center; padding:1rem; margin-top:2rem; }
   </style>
 </head>
 <body>
@@ -24,43 +23,57 @@
   <img src="assets/LOGO_Bleu-removebg-preview.png" alt="Mathalaska Logo">
   <nav>
     <a href="index.html">Présentation</a>
-    <a href="services.html">Nos Services</a>
+    <a href="services.html">Services</a>
     <a href="contact.html">Contact</a>
   </nav>
 </header>
 
 <div class="container">
+  <h1>Contactez-nous pour un devis personnalisé</h1>
 
-  <section id="vcard">
-    <h2>Notre Carte de Visite</h2>
-    <img src="assets/qr-mathalaska.png" alt="QR Code Mathalaska" style="width:150px; margin:1rem auto;">
-    <p>Scannez ce QR code pour revenir sur notre site : <strong>www.mathalaska.com</strong></p>
-    <a href="https://www.mathalaska.com" style="background:#009688; color:#fff; padding:0.8rem 1.5rem; border-radius:30px; text-decoration:none; font-weight:bold;">Accéder au site</a>
-  </section>
-
-  <h1>Contactez-nous</h1>
   <form action="https://formspree.io/f/TON_ENDPOINT_ICI" method="POST">
     <input type="text" name="name" placeholder="Nom Prénom" required>
     <input type="tel" name="phone" placeholder="Téléphone" required>
     <input type="email" name="email" placeholder="Email" required>
 
-    <label for="zone">Zone d'intervention :</label>
-    <select id="zone" name="zone" required onchange="updateFrais()">
+    <label for="type">Type d'installation :</label>
+    <select id="type" name="type" required onchange="checkOtherConfig()">
+      <option value="" disabled selected>Choisissez une option</option>
+      <option value="Split mural">Split mural</option>
+      <option value="Gainable">Gainable</option>
+      <option value="Console">Console</option>
+      <option value="Volet roulant intégré">Volet roulant intégré</option>
+      <option value="Autre configuration">Autre configuration</option>
+    </select>
+    <input type="text" id="otherConfig" name="otherConfig" placeholder="Précisez la configuration" style="display:none;">
+
+    <label>Nb unités intérieures :</label>
+    <input type="number" name="unites_interieures" min="1" max="10" required>
+
+    <label>Nb unités extérieures :</label>
+    <input type="number" name="unites_exterieures" min="1" max="10" required>
+
+    <label for="zone">Zone intervention :</label>
+    <select id="zone" name="zone" required onchange="checkOtherZone();updateFrais();">
       <option value="" disabled selected>Choisissez votre zone</option>
       <option value="Menton">Menton</option>
+      <option value="Monaco">Monaco</option>
       <option value="Roquebrune-Cap-Martin">Roquebrune-Cap-Martin</option>
       <option value="Beausoleil">Beausoleil</option>
-      <option value="Monaco">Monaco</option>
       <option value="Cap d'Ail">Cap d'Ail</option>
       <option value="Eze">Eze</option>
+      <option value="Nice">Nice</option>
+      <option value="Autre">Autre</option>
     </select>
+    <input type="text" id="otherZone" name="otherZone" placeholder="Indiquez la zone" style="display:none;">
     <p id="frais"></p>
 
-    <textarea name="message" placeholder="Type de clim, nombre d'unités intérieures et extérieures..." rows="5" required></textarea>
-    <button type="submit" class="cta">Envoyer</button>
-  </form>
+    <textarea name="message" placeholder="Expliquez votre situation, accès, contraintes, etc." rows="5" required></textarea>
+    <p style="font-size:0.9rem; color:#666;">✅ Si vous avez plusieurs types d’unités différentes, merci de le préciser ici pour un devis précis.</p>
 
-  <p>Ou <a href="https://wa.me/TON_NUMERO" target="_blank">discuter sur WhatsApp</a></p>
+    <button type="submit" class="cta">Envoyer</button>
+    <p>Ou <a href="https://wa.me/TON_NUMERO" target="_blank">discuter sur WhatsApp</a></p>
+  </form>
 </div>
 
 <footer>
@@ -72,14 +85,26 @@
     var zone = document.getElementById('zone').value;
     var frais = '';
     switch(zone) {
-      case 'Menton': frais = 'Frais de déplacement : 0 €'; break;
-      case 'Roquebrune-Cap-Martin': frais = 'Frais de déplacement : +5 €'; break;
-      case 'Beausoleil': 
-      case 'Monaco': frais = 'Frais de déplacement : +10 €'; break;
-      case 'Cap d\'Ail': frais = 'Frais de déplacement : +15 €'; break;
-      case 'Eze': frais = 'Frais de déplacement : +20 €'; break;
+      case 'Menton': frais = 'Frais estimés : 0 €'; break;
+      case 'Roquebrune-Cap-Martin': frais = 'Frais estimés : +5 €'; break;
+      case 'Beausoleil':
+      case 'Monaco': frais = 'Frais estimés : +10 €'; break;
+      case 'Cap d\'Ail': frais = 'Frais estimés : +15 €'; break;
+      case 'Eze': frais = 'Frais estimés : +20 €'; break;
+      case 'Nice': frais = 'Frais estimés : +30 €'; break;
+      case 'Autre': frais = 'Frais à confirmer selon zone'; break;
     }
     document.getElementById('frais').innerText = frais;
+  }
+
+  function checkOtherConfig() {
+    var type = document.getElementById('type').value;
+    document.getElementById('otherConfig').style.display = (type === "Autre configuration") ? "block" : "none";
+  }
+
+  function checkOtherZone() {
+    var zone = document.getElementById('zone').value;
+    document.getElementById('otherZone').style.display = (zone === "Autre") ? "block" : "none";
   }
 </script>
 
