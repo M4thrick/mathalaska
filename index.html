@@ -3,93 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mathalaska - Nettoyage Climatisation Menton</title>
+  <title>Mathalaska - Présentation</title>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #f7fafa;
-      color: #333;
-    }
-    header {
-      background: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 2rem;
-      border-bottom: 1px solid #ddd;
-    }
-    header img {
-      height: 50px;
-    }
-    nav a {
-      color: #333;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .hero {
-      background: linear-gradient(135deg, #00bcd4, #009688);
-      color: white;
-      text-align: center;
-      padding: 4rem 1rem;
-    }
-    .container {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    section {
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      padding: 2rem;
-      margin-bottom: 2rem;
-    }
-    .before-after {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-    .before-after img {
-      width: 48%;
-      border-radius: 8px;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-    }
-    form input, form select, form textarea {
-      padding: 0.8rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    .cta {
-      background: #00bcd4;
-      color: white;
-      padding: 1rem;
-      border: none;
-      border-radius: 30px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    footer {
-      background: #333;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-    }
+    body { margin:0; font-family: Arial, sans-serif; background:#f7fafa; color:#333; }
+    header { display:flex; align-items:center; justify-content:space-between; padding:1rem 2rem; border-bottom:1px solid #ddd; background:#fff; }
+    header img { height:50px; }
+    nav a { color:#333; margin:0 1rem; text-decoration:none; font-weight:bold; }
+    .hero { background:linear-gradient(135deg,#00bcd4,#009688); color:#fff; text-align:center; padding:4rem 1rem; }
+    .container { max-width:1000px; margin:2rem auto; padding:0 1rem; }
+    footer { background:#333; color:#fff; text-align:center; padding:1rem; }
   </style>
 </head>
 <body>
 
 <header>
-  <img src="https://raw.githubusercontent.com/M4thrick/Mathalaska/main/LOGO_Bleu-removebg-preview.png" alt="Mathalaska Logo">
+  <img src="assets/LOGO_Bleu-removebg-preview.png" alt="Mathalaska Logo">
   <nav>
-    <a href="#presentation">Présentation</a>
-    <a href="#services">Nos Services</a>
-    <a href="#contact">Contact</a>
+    <a href="index.html">Présentation</a>
+    <a href="services.html">Nos Services</a>
+    <a href="contact.html">Contact</a>
   </nav>
 </header>
 
@@ -99,91 +31,14 @@
 </div>
 
 <div class="container">
-
-  <section id="presentation">
-    <h2>Présentation</h2>
-    <p>Chez Mathalaska, on démonte, on nettoie, on désinfecte ➜ votre clim fonctionne mieux, consomme moins, et dure plus longtemps.
-    Économies d'énergie, air plus sain, clients satisfaits : c’est ça notre mission fraîcheur !</p>
-  </section>
-
-  <section id="before-after">
-    <h2>Avant / Après</h2>
-    <div class="before-after">
-      <img src="https://via.placeholder.com/400x300?text=Avant" alt="Avant nettoyage">
-      <img src="https://via.placeholder.com/400x300?text=Après" alt="Après nettoyage">
-    </div>
-  </section>
-
-  <section id="services">
-    <h2>Nos Services</h2>
-    <p>Nettoyage complet de :
-      <ul>
-        <li>1 ➜ Plusieurs splits</li>
-        <li>Groupes extérieurs</li>
-        <li>Gainables, consoles</li>
-        <li>Entretien préventif annuel</li>
-      </ul>
-    </p>
-    <p><strong>Frais de déplacement :</strong> calculés selon votre zone ➜ pas de surprise, toujours annoncés au devis !</p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Décrivez votre installation pour un devis rapide :</p>
-    <form action="https://formspree.io/f/TON_ENDPOINT_ICI" method="POST">
-      <input type="text" name="name" placeholder="Nom Prénom" required>
-      <input type="tel" name="phone" placeholder="Téléphone" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <label for="zone">Zone d'intervention :</label>
-      <select id="zone" name="zone" required onchange="updateFrais()">
-        <option value="" disabled selected>Choisissez votre zone</option>
-        <option value="Menton">Menton</option>
-        <option value="Roquebrune-Cap-Martin">Roquebrune-Cap-Martin</option>
-        <option value="Beausoleil">Beausoleil</option>
-        <option value="Monaco">Monaco</option>
-        <option value="Cap d'Ail">Cap d'Ail</option>
-        <option value="Eze">Eze</option>
-      </select>
-      <p id="frais"></p>
-      <textarea name="message" placeholder="Type de clim, nombre d'unités intérieures et extérieures..." rows="5" required></textarea>
-      <button type="submit" class="cta">Envoyer</button>
-    </form>
-    <p>Ou <a href="https://wa.me/TON_NUMERO" target="_blank">discuter sur WhatsApp</a></p>
-  </section>
-
+  <h2>Pourquoi nettoyer votre climatisation ?</h2>
+  <p>Une clim mal entretenue consomme plus, tombe plus souvent en panne et peut polluer l’air intérieur.  
+  Avec Mathalaska, votre installation est démontée, nettoyée et désinfectée : économie d'énergie, air plus sain et clim qui dure plus longtemps !</p>
 </div>
 
 <footer>
   &copy; 2025 Mathalaska | Nettoyage Climatisation Menton
 </footer>
-
-<script>
-  function updateFrais() {
-    var zone = document.getElementById('zone').value;
-    var frais = '';
-    switch(zone) {
-      case 'Menton':
-        frais = 'Frais de déplacement : 0 €';
-        break;
-      case 'Roquebrune-Cap-Martin':
-        frais = 'Frais de déplacement : +5 €';
-        break;
-      case 'Beausoleil':
-      case 'Monaco':
-        frais = 'Frais de déplacement : +10 €';
-        break;
-      case 'Cap d\'Ail':
-        frais = 'Frais de déplacement : +15 €';
-        break;
-      case 'Eze':
-        frais = 'Frais de déplacement : +20 €';
-        break;
-      default:
-        frais = '';
-    }
-    document.getElementById('frais').innerText = frais;
-  }
-</script>
 
 </body>
 </html>
