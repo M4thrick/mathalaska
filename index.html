@@ -12,28 +12,30 @@
       color: #333;
     }
     header {
-      background: linear-gradient(135deg, #00bcd4, #009688);
-      color: white;
-      padding: 3rem 1rem;
-      text-align: center;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #ddd;
     }
     header img {
-      max-width: 100px;
-      margin-bottom: 1rem;
-    }
-    nav {
-      background: #00796b;
-      padding: 1rem;
-      text-align: center;
+      height: 50px;
     }
     nav a {
-      color: white;
+      color: #333;
       margin: 0 1rem;
       text-decoration: none;
       font-weight: bold;
     }
+    .hero {
+      background: linear-gradient(135deg, #00bcd4, #009688);
+      color: white;
+      text-align: center;
+      padding: 4rem 1rem;
+    }
     .container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 2rem auto;
       padding: 0 1rem;
     }
@@ -44,21 +46,33 @@
       padding: 2rem;
       margin-bottom: 2rem;
     }
-    h1, h2 {
-      margin-top: 0;
+    .before-after {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .before-after img {
+      width: 48%;
+      border-radius: 8px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    form input, form textarea {
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
     }
     .cta {
-      display: inline-block;
       background: #00bcd4;
       color: white;
-      padding: 1rem 2rem;
+      padding: 1rem;
+      border: none;
       border-radius: 30px;
-      text-decoration: none;
       font-weight: bold;
-      transition: background 0.3s ease;
-    }
-    .cta:hover {
-      background: #0097a7;
+      cursor: pointer;
     }
     footer {
       background: #333;
@@ -71,36 +85,65 @@
 <body>
 
 <header>
-  <!-- Ton logo ici -->
-  <img src="https://via.placeholder.com/100x100.png?text=LOGO" alt="Logo Mathalaska">
-  <h1>Mathalaska</h1>
-  <p>Votre clim, notre mission fraîcheur !</p>
+  <img src="https://raw.githubusercontent.com/M4thrick/Mathalaska/main/LOGO_Bleu-removebg-preview.png" alt="Mathalaska Logo">
+  <nav>
+    <a href="#presentation">Présentation</a>
+    <a href="#services">Nos Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
-<nav>
-  <a href="#services">Nos Services</a>
-  <a href="#contact">Contact</a>
-</nav>
+<div class="hero">
+  <h1>Mathalaska</h1>
+  <p>Votre clim, notre mission fraîcheur !</p>
+</div>
 
 <div class="container">
 
+  <section id="presentation">
+    <h2>Présentation</h2>
+    <p>Chez Mathalaska, on démonte, on nettoie, on désinfecte ➜ votre clim fonctionne mieux, consomme moins, et dure plus longtemps.  
+    Économies d'énergie, air plus sain, clients satisfaits : c’est ça notre mission fraîcheur !</p>
+  </section>
+
+  <section id="before-after">
+    <h2>Avant / Après</h2>
+    <div class="before-after">
+      <img src="https://via.placeholder.com/400x300?text=Avant" alt="Avant nettoyage">
+      <img src="https://via.placeholder.com/400x300?text=Après" alt="Après nettoyage">
+    </div>
+    <!-- Remplace ces images par tes propres photos/vidéos plus tard -->
+  </section>
+
   <section id="services">
     <h2>Nos Services</h2>
-    <p>Nettoyage complet de vos climatisations : de 1 à plusieurs splits, groupes extérieurs, gainables ou consoles.<br>
-    Intervention rapide sur Menton et alentours.</p>
+    <p>Nettoyage complet de :
+      <ul>
+        <li>1 ➜ Plusieurs splits</li>
+        <li>Groupes extérieurs</li>
+        <li>Gainables, consoles</li>
+        <li>Entretien préventif annuel</li>
+      </ul>
+    </p>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>📞 06 62 93 35 78<br>
-    📧 Mathalaska.clim@gmail.com</p>
-    <a href="mailto:Mathalaska.clim@gmail.com" class="cta">Demander un devis</a>
+    <p>Décrivez votre installation pour un devis rapide :</p>
+    <form action="https://formspree.io/f/TON_ENDPOINT_ICI" method="POST">
+      <input type="text" name="name" placeholder="Nom Prénom" required>
+      <input type="tel" name="phone" placeholder="Téléphone" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" placeholder="Type de clim, nombre d'unités intérieures et extérieures..." rows="5" required></textarea>
+      <button type="submit" class="cta">Envoyer</button>
+    </form>
+    <p>Ou <a href="https://wa.me/TON_NUMERO" target="_blank">discuter sur WhatsApp</a></p>
   </section>
 
 </div>
 
 <footer>
-  &copy; 2025 Mathalaska - Nettoyage Climatisation à Menton.
+  &copy; 2025 Mathalaska | Nettoyage Climatisation Menton
 </footer>
 
 </body>
