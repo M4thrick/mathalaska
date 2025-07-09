@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mathalaska - Contact</title>
+  <style>
+    body { margin:0; font-family: Arial, sans-serif; background:#f7fafa; color:#333; }
+    header { display:flex; align-items:center; justify-content:space-between; padding:1rem 2rem; border-bottom:1px solid #ddd; background:#fff; }
+    header img { height:50px; }
+    nav a { color:#333; margin:0 1rem; text-decoration:none; font-weight:bold; }
+    .container { max-width:1000px; margin:2rem auto; padding:0 1rem; }
+    form { display:flex; flex-direction:column; }
+    form input, form select, form textarea { padding:0.8rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:5px; }
+    .cta { background:#00bcd4; color:#fff; padding:1rem; border:none; border-radius:30px; font-weight:bold; cursor:pointer; }
+    footer { background:#333; color:#fff; text-align:center; padding:1rem; }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="assets/LOGO_Bleu-removebg-preview.png" alt="Mathalaska Logo">
+  <nav>
+    <a href="index.html">Présentation</a>
+    <a href="services.html">Nos Services</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h1>Contactez-nous</h1>
+  <p>Remplissez le formulaire, nous vous répondrons rapidement :</p>
+
+  <form action="https://formspree.io/f/TON_ENDPOINT_ICI" method="POST">
+    <input type="text" name="name" placeholder="Nom Prénom" required>
+    <input type="tel" name="phone" placeholder="Téléphone" required>
+    <input type="email" name="email" placeholder="Email" required>
+
+    <label for="zone">Zone d'intervention :</label>
+    <select id="zone" name="zone" required onchange="updateFrais()">
+      <option value="" disabled selected>Choisissez votre zone</option>
+      <option value="Menton">Menton</option>
+      <option value="Roquebrune-Cap-Martin">Roquebrune-Cap-Martin</option>
+      <option value="Beausoleil">Beausoleil</option>
+      <option value="Monaco">Monaco</option>
+      <option value="Cap d'Ail">Cap d'Ail</option>
+      <option value="Eze">Eze</option>
+    </select>
+    <p id="frais"></p>
+
+    <textarea name="message" placeholder="Type de clim, nombre d'unités intérieures et extérieures..." rows="5" required></textarea>
+    <button type="submit" class="cta">Envoyer</button>
+  </form>
+
+  <p>Ou <a href="https://wa.me/TON_NUMERO" target="_blank">discuter sur WhatsApp</a></p>
+</div>
+
+<footer>
+  &copy; 2025 Mathalaska | Nettoyage Climatisation Menton
+</footer>
+
+<script>
+  function updateFrais() {
+    var zone = document.getElementById('zone').value;
+    var frais = '';
+    switch(zone) {
+      case 'Menton':
+        frais = 'Frais de déplacement : 0 €';
+        break;
+      case 'Roquebrune-Cap-Martin':
+        frais = 'Frais de déplacement : +5 €';
+        break;
+      case 'Beausoleil':
+      case 'Monaco':
+        frais = 'Frais de déplacement : +10 €';
+        break;
+      case 'Cap d\'Ail':
+        frais = 'Frais de déplacement : +15 €';
+        break;
+      case 'Eze':
+        frais = 'Frais de déplacement : +20 €';
+        break;
+      default:
+        frais = '';
+    }
+    document.getElementById('frais').innerText = frais;
+  }
+</script>
+
+</body>
+</html>
